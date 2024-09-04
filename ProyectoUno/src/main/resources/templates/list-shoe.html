@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shoe List</title>
+</head>
+<body>
+<h1>Shoe List</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="shoe : ${shoes}">
+        <td th:text="${shoe.name}"></td>
+        <td th:text="${shoe.price}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a href="/add-shoe">Add New Shoe</a>
+</body>
+</html>

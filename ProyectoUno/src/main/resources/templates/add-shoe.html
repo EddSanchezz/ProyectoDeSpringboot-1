@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Shoe</title>
+</head>
+<body>
+<h1>New Shoe</h1>
+
+<div>
+    <p style="color: green;">
+        <strong th:if="${message != null}" th:text="${message}"></strong>
+    </p>
+</div>
+
+<form action="/save-shoe" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="price">Price:</label><br>
+    <input type="text" id="price" name="price"><br><br>
+    <label for="size">Size:</label><br>
+    <input type="text" id="size" name="size"><br><br>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
+
