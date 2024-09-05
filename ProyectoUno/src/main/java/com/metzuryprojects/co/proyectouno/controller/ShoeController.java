@@ -18,6 +18,11 @@ public class ShoeController {
     @Autowired
     private ShoeRepository shoeRepository;
 
+    @GetMapping("/admin-options")
+    public String adminOptions(Model model) {
+        return "admin-options";
+    }
+
     @GetMapping("/add-shoe")
     public String addShoe(Model model) {
         return "add-shoe";
@@ -31,11 +36,13 @@ public class ShoeController {
     }
 
     @PostMapping("/save-shoe")
-    public String saveShoe(@RequestParam String name, @RequestParam Double price, @RequestParam Integer size, Model model) {
+    public String saveShoe(@RequestParam String name, @RequestParam Double price, @RequestParam Integer size, @RequestParam String color, @RequestParam int quantity ,Model model) {
         Shoe shoe = new Shoe();
         shoe.setName(name);
         shoe.setPrice(price);
         shoe.setSize(size);
+        shoe.setColor(color);
+        shoe.setQuantity(quantity);
         shoeRepository.save(shoe);
 
         model.addAttribute("message", "Shoe added successfully!");

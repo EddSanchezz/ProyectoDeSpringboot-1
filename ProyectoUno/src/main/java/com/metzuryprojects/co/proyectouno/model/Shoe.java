@@ -14,18 +14,20 @@ public class Shoe {
     private String name;
     private Double price;
     private Integer size;
+    private String color;
+    private int Quantity;
 
     public Shoe() {
 
     }
 
-    public Shoe(Long id, Integer size, Double precio, String modelName) {
-        this.id = id;
+    public Shoe( Integer size, Double precio, String modelName, String color, int quantity) {
         this.size = size;
         this.price = precio;
         this.name = modelName;
+        this.color = color;
+        this.Quantity = quantity;
     }
-
 
 
     public Long getId() {
@@ -58,5 +60,21 @@ public class Shoe {
 
     public void setSize(Integer size) {
         this.size = size;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        Quantity = quantity;
     }
 }
