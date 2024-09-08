@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Entity
 public class Shoe {
@@ -21,10 +23,10 @@ public class Shoe {
 
     }
 
-    public Shoe( Integer size, Double precio, String modelName, String color, int quantity) {
+    public Shoe( String name,  Double price, Integer size, String color, int quantity) {
         this.size = size;
-        this.price = precio;
-        this.name = modelName;
+        this.price = price;
+        this.name = name;
         this.color = color;
         this.Quantity = quantity;
     }
