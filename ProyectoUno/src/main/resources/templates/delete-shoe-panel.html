@@ -7,10 +7,15 @@
 </head>
 <body>
 <h1>Delete Shoe</h1>
-<form action="/deleteShoe" method="post">
-    <label for="shoeId">Enter Shoe ID:</label>
-    <input type="number" id="shoeId" name="shoeId" required>
+<div>
+    <p><strong th:if="${message != null}" th:text="${message}"></strong></p>
+</div>
+<form action="/delete-shoe" method="post">
+    <label for="id">Enter Shoe ID:</label>
+    <input type="number" id="id" name="id" required>
     <button type="submit">Delete Shoe</button>
 </form>
+
+<a href="/admin-options">Go to Admin Panel</a>
 </body>
 </html>

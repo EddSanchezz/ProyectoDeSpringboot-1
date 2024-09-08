@@ -14,12 +14,14 @@
     <tr>
         <th>Name</th>
         <th>Price</th>
+        <th>Id</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="shoe : ${shoes}">
-        <td th:text="${shoe.name}"></td>
-        <td th:text="${shoe.price}"></td>
+        <td th:text="${shoe.getName()}"></td>
+        <td th:text="${shoe.getPrice()}"></td>
+        <td th:text="${shoe.getId()}"></td>
     </tr>
     </tbody>
 </table>

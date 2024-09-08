@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Shoe</title>
+</head>
+<body>
+<h1>Find Shoe</h1>
+
+<!-- Display form only if formSubmitted is false -->
+<div th:if="${formSubmitted == false}">
+    <form action="/find-shoe" method="post">
+        <label for="id">Enter Shoe ID:</label>
+        <input type="number" id="id" name="id" required>
+        <button type="submit">Find Shoe</button>
+    </form>
+
+    <!-- Show message if no ID has been submitted -->
+    <p th:if="${formSubmitted == false}" th:text="'Please enter an ID to find a shoe.'"></p>
+</div>
+
+<!-- Display shoe details or error message -->
+<div>
+    <!-- Show shoe details if shoe is not null -->
+    <p><strong th:if="${shoe != null}" th:text="'ID: ' + ${shoe.id}"></strong></p>
+    <p><strong th:if="${shoe != null}" th:text="'Name: ' + ${shoe.name}"></strong></p>
+    <p><strong th:if="${shoe != null}" th:text="'Price: ' + ${shoe.price}"></strong></p>
+    <p><strong th:if="${shoe != null}" th:text="'Size: ' + ${shoe.size}"></strong></p>
+
+    <!-- Show error message if shoe is null and formSubmitted is true -->
+    <p th:if="${formSubmitted and shoe == null}" th:text="'No shoe found with the provided ID.'"></p>
+</div>
+</body>
+</html>

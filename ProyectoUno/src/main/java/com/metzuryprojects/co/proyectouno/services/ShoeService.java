@@ -19,11 +19,18 @@ public class ShoeService {
 
     public void deleteShoeById(Long id) {
         if (shoeRepository.existsById(id)) {
-            shoeRepository.deleteById(id); // Lógica para eliminar el zapato
+            shoeRepository.deleteById(id);
         } else {
-            throw new IllegalArgumentException("El zapato con el ID " + id + " no existe.");
+            throw new IllegalArgumentException("Shoe with ID " + id + " doesn't exist.");
         }
     }
 
-
+    public Shoe getShoeById(Long id) {
+        if(shoeRepository.existsById(id)) {
+            return shoeRepository.findById(id).get();
+        }else{
+            return null;
+            //throw new IllegalArgumentException("Shoe with ID " + id + " doesn't exist.");
+        }
+    }
 }
