@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.metzuryprojects.co.proyectouno.services.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 //Controller for html
@@ -54,6 +56,12 @@ public class ShoeController {
         return "find-shoe-panel";
     }
 
+    @GetMapping("/modify-shoe-panel")
+    public String modifyShoePanel(Model model) {
+        model.addAttribute("formSubmitted", false);
+        return "modify-shoe-panel";
+    }
+
     //CRUD shoe:
 
     //add shoe method
@@ -78,6 +86,7 @@ public class ShoeController {
         return "delete-shoe-panel";
     }
 
+    //fin shoe method
     @PostMapping("/find-shoe")
     public String findShoe(@RequestParam Long id, Model model) {
         Shoe shoe = shoeService.getShoeById(id);
@@ -85,5 +94,14 @@ public class ShoeController {
         model.addAttribute("formSubmitted", true);
         return "find-shoe-panel";
     }
+
+    //update a shoe
+    @PutMapping("/modify-shoe")
+    public String modifyShoe(@RequestParam Long id, @RequestParam String color, @RequestParam String name, @RequestParam Integer size, @RequestParam Double price, @RequestParam Integer quantity, Model model) {
+        shoeService.ModifyShoe(id, name, price, size, color, quantity);
+        return "modify-shoe-panel";
+    }
+
+
 
 }
